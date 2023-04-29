@@ -52,7 +52,7 @@ class MqttConfigAdmin(AjaxAdmin):
     readonly_fields = ["create_by", "delete_at"]
     top_html = ' <el-alert title="为适配多平台，可增加多个mqtt配置!" type="success"></el-alert>'
     change_list_template = "admin/system/mqttconfig/change_list.html"
-    
+
     def save_model(self, request, obj, form, change):
         obj.create_by = request.user.username
         return super(MqttConfigAdmin, self).save_model(request, obj, form, change)
@@ -70,7 +70,7 @@ class HttpConfigAdmin(AjaxAdmin):
     readonly_fields = ["create_by", "delete_at"]
     top_html = ' <el-alert title="为适配多平台，可增加多个http配置!" type="success"></el-alert>'
     change_list_template = "admin/system/httpconfig/change_list.html"
-    
+
     def save_model(self, request, obj, form, change):
         obj.create_by = request.user.username
         return super(HttpConfigAdmin, self).save_model(request, obj, form, change)

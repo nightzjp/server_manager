@@ -192,7 +192,11 @@ SIMPLEUI_CONFIG = {
                     "icon": "fa fa-user",
                     "url": "/admin/system/userproxy/",
                 },
-                {"name": "设备信息", "icon": "fas fa-cogs", "url": "/admin/system/systeminfo/"},
+                {
+                    "name": "设备信息",
+                    "icon": "fas fa-cogs",
+                    "url": "/admin/system/systeminfo/",
+                },
                 {
                     "name": "异步任务",
                     "icon": "fas fa-user-shield",

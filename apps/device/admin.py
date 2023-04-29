@@ -17,7 +17,7 @@ class AlgorithmAdmin(AjaxAdmin):
     readonly_fields = ["create_by", "delete_at", "ai_source", "ai_is_used"]
     top_html = ' <el-alert title="为了保证系统稳定性，不可轻易对模型进行编辑操作!" type="warning"></el-alert>'
     change_list_template = "admin/device/algorithm/change_list.html"
-    
+
     def save_model(self, request, obj, form, change):
         obj.create_by = request.user.username
         return super(AlgorithmAdmin, self).save_model(request, obj, form, change)
@@ -76,4 +76,3 @@ class DeviceAdmin(ExportActionModelAdmin, AjaxAdmin):
             return f"rtsp://{obj.d_username}:{obj.d_password}@{obj.d_ip}:554/video1"
         else:  # 未知|自定义
             return f"rtsp://{obj.d_username}:{obj.d_password}@{obj.d_ip}:554"
-
