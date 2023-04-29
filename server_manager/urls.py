@@ -21,11 +21,11 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     # path('', admin.site.urls),
-    path('sp/', include('simplepro.urls')),
+    path("sp/", include("simplepro.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = '视图结构化一体机管理平台'
-admin.site.site_title = '视图结构化一体机管理平台'
-admin.site.empty_value_display = None
+admin.site.site_header = "视图管理平台"
+admin.site.site_title = "视图管理平台"
+admin.site.empty_value_display = "-"

@@ -45,8 +45,9 @@ class BaseModel(models.Model):
         blank=True,
         max_length=200,
         show_word_limit=True,
-        suffix_icon="el-icon-date",
+        prefix_icon="el-icon-edit",
         verbose_name="备注信息",
+        placeholder="请输入备注信息(可为空)",
     )
 
     objects = BaseManager()  # 默认查看已存在数据
