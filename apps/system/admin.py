@@ -30,7 +30,7 @@ class LogEntryAdmin(AjaxAdmin):
     readonly_fields = ["action_time", "user", "content_type"]
     exclude = ["change_message", "action_flag", "object_repr", "object_id"]
     list_per_page = 10
-    top_html = ' <el-alert title="日志信息只读!" type="info"></el-alert>'
+    top_html = ' <el-alert title="日志信息只读!" type="warning"></el-alert>'
     change_list_template = "admin/system/logentry/change_list.html"
 
     @staticmethod
@@ -52,6 +52,10 @@ class MqttConfigAdmin(AjaxAdmin):
     readonly_fields = ["create_by", "delete_at"]
     top_html = ' <el-alert title="为适配多平台，可增加多个mqtt配置!" type="success"></el-alert>'
     change_list_template = "admin/system/mqttconfig/change_list.html"
+    
+    def save_model(self, request, obj, form, change):
+        obj.create_by = request.user.username
+        return super(MqttConfigAdmin, self).save_model(request, obj, form, change)
 
 
 @admin.register(models.HttpConfig)
@@ -66,11 +70,16 @@ class HttpConfigAdmin(AjaxAdmin):
     readonly_fields = ["create_by", "delete_at"]
     top_html = ' <el-alert title="为适配多平台，可增加多个http配置!" type="success"></el-alert>'
     change_list_template = "admin/system/httpconfig/change_list.html"
+    
+    def save_model(self, request, obj, form, change):
+        obj.create_by = request.user.username
+        return super(HttpConfigAdmin, self).save_model(request, obj, form, change)
 
 
 @admin.register(models.NetworkConfig)
 class NetworkConfigAdmin(AjaxAdmin):
     list_display = ["n_name", "n_ip", "n_mask", "n_gateway", "n_dns"]
+    top_html = ' <el-alert title="系统初始化自动读取网络配置，不可手动操作!" type="warning"></el-alert>'
     change_list_template = "admin/system/networkconfig/change_list.html"
 
 
@@ -86,4 +95,5 @@ class SystemInfoAdmin(AjaxAdmin):
         "d_ffmpeg_version",
         "d_config",
     ]
+    top_html = ' <el-alert title="系统信息后台自动获取，不可手动操作!" type="warning"></el-alert>'
     change_list_template = "admin/system/systeminfo/change_list.html"
