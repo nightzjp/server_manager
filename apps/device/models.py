@@ -36,6 +36,7 @@ class Algorithm(BaseModel):
         blank=False,
         verbose_name="模型文件",
         validators=[validators.validate_file_suffix],
+        help_text="仅支持zip文件上传"
     )
 
     class Meta:
