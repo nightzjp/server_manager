@@ -70,7 +70,8 @@
                 </el-button>
 
                 <el-dropdown-menu slot="dropdown">
-
+                    <el-dropdown-item icon="el-icon-refresh">系统升级</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-refresh">固件升级</el-dropdown-item>
                     {% verbatim mycode %}
                         <el-dropdown-item v-waves icon="el-icon-edit" @click.native="changePassword()" divided>{{ language.change_password }}</el-dropdown-item>
                         <el-dropdown-item icon="el-icon-close" @click.native="logout()" divided>{{ language.logout }}</el-dropdown-item>
