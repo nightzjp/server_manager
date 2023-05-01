@@ -38,6 +38,9 @@ class Algorithm(BaseModel):
         validators=[validators.validate_file_suffix],
         help_text="仅支持zip文件上传",
     )
+    ai_source_id = fields.CharField(
+        max_length=32, null=True, blank=True, verbose_name="模型原始id"
+    )
 
     class Meta:
         verbose_name = "算法模型管理类"
@@ -123,6 +126,9 @@ class Device(BaseModel):
         placeholder="请输入关键字搜索",
         titles=["待选", "已选"],
         button_texts=["往左", "往右"],
+    )
+    d_source_id = fields.CharField(
+        max_length=32, null=True, blank=True, verbose_name="设备原始id"
     )
 
     class Meta:
