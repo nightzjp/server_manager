@@ -1,0 +1,28 @@
+{% load i18n static simpletags %}
+
+{% if "SIMPLEUI_HOME_QUICK"|get_config != False %}
+
+    <script type="text/javascript">
+        var quick_colors = ['rgb(105, 192, 255)', 'rgb(149, 222, 100)', 'rgb(255, 156, 110)', 'rgb(179, 127, 235)', 'rgb(255, 214, 102)', 'rgb(92, 219, 211)', 'rgb(255, 133, 192)', 'rgb(255, 192, 105)'];
+        window.color_mappers = window.color_mappers || {};
+
+        function getColor(id) {
+            var val = color_mappers[id];
+            if (val) {
+                return val;
+            }
+            var color = 'color: ' + quick_colors[Math.floor(Math.random() * quick_colors.length)];
+            color_mappers[id] = color;
+            return color;
+        }
+    </script>
+    <div class="clearfix">
+        <div v-for="(c,j) in models" :key="c.name" class="quick-wrap">
+            <a href="javascript:;" @click="openTab(c,(j+1)+'')">
+                <span class="icon" :class="c.icon" :style="getColor(c.eid)"></span>
+                <span class="card-name" v-text="c.name"></span>
+            </a>
+        </div>
+    </div>
+
+{% endif %}
