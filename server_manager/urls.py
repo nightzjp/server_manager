@@ -20,10 +20,17 @@ from django.contrib import admin
 from django.urls import path, include
 
 
+urls_v1 = [
+    path("device/", include(("device.urls", "device"))),
+    path("system/", include(("system.urls", "system"))),
+]
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     # path('', admin.site.urls),
     path("sp/", include("simplepro.urls")),
+    path("v1/", include(urls_v1))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = "视图管理平台"

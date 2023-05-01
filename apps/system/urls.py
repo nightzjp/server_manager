@@ -14,5 +14,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from rest_framework.routers import DefaultRouter
+
+from system import views
+
+router = DefaultRouter()
+router.register(r"mqtt_config", views.MqttConfigViewSet, basename="mqtt_config")
+router.register(r"http_config", views.HttpConfigViewSet, basename="http_config")
+router.register(r"network_config", views.NetWorkConfigViewSet, basename="network_config")
+router.register(r"system_info", views.SystemInfoViewSet, basename="system_info")
 
 urlpatterns = []
+
+urlpatterns += router.urls
