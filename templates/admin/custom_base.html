@@ -1,6 +1,7 @@
 {% load static simpletags sptags %}
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <title>父页面</title>
@@ -16,7 +17,8 @@
     <script src="{% static 'axios/axios.min.js' %}"></script>
 
     <script type="text/javascript" src="{% static '/admin/simplepro/js/monitor.js' %}?_={% get_sp_version %}"></script>
-    <script type="text/javascript" src="{% static '/admin/simplepro/js/g2plot.min.js' %}?_={% get_sp_version %}"></script>
+    <script type="text/javascript" src="{% static '/admin/simplepro/js/g2plot.min.js' %}?_={% get_sp_version %}">
+    </script>
 
     {% block style %}
 
@@ -25,15 +27,16 @@
 
 <body>
 
-<div id="content" class="colM" style="margin-top: 10px;">
-    {% block main %}
+    <div id="content" class="colM" style="margin-top: 10px;">
+        {% block main %}
+
+        {% endblock %}
+    </div>
+
+    {% block script %}
 
     {% endblock %}
-</div>
-
-{% block script %}
-
-{% endblock %}
 
 </body>
+
 </html>
