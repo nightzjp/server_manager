@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>父页面</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="{% static 'element-ui/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}?_=2.7">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/simpleui-x/css/base.css' %}?_=2.7">
+    <!-- 引入vue -->
+    <script src="{% static 'vue/vue.js' %}"></script>
+    <!-- 引入组件库 -->
+    <script src="{% static 'element-ui/index.js' %}"></script>
+    <!-- axios -->
+    <script src="{% static 'axios/axios.min.js' %}"></script>
+
+    {% block style %}
+
+    {% endblock %}
+</head>
+
+<body>
+
+<div id="content" class="colM" style="margin-top: 10px;">
+    {% block main %}
+
+    {% endblock %}
+</div>
+
+{% block script %}
+
+{% endblock %}
+
+</body>
+</html>

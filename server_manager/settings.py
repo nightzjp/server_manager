@@ -190,7 +190,7 @@ SIMPLEUI_CONFIG = {
                     "icon": "fas fa-project-diagram",
                     "url": "/admin/system/httpconfig/",
                 },
-                {"name": "程序升级", "icon": "fas fa-level-up-alt", "url": ""},
+                {"name": "程序升级", "icon": "fas fa-level-up-alt", "url": "/custom/upload/"},
             ],
         },
         {
