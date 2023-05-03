@@ -1,5 +1,13 @@
 {% extends "admin/home.html" %}
 
+{% block quick %}
+    {{ block.super }}
+{% endblock %}
+
+{% block monitor %}
+    {{ block.super }}
+{% endblock %}
+
 {% block timeline %}
     {% include 'admin/timeline.html' %}
 {% endblock %}

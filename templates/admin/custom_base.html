@@ -1,4 +1,4 @@
-{% load static %}
+{% load static simpletags sptags %}
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -14,6 +14,9 @@
     <script src="{% static 'element-ui/index.js' %}"></script>
     <!-- axios -->
     <script src="{% static 'axios/axios.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static '/admin/simplepro/js/monitor.js' %}?_={% get_sp_version %}"></script>
+    <script type="text/javascript" src="{% static '/admin/simplepro/js/g2plot.min.js' %}?_={% get_sp_version %}"></script>
 
     {% block style %}
 

@@ -1,5 +1,7 @@
 {% extends "admin/custom_base.html" %}
 
+{% load i18n static simpletags sptags %}
+
 {% block style %}
     <style>
         .el-row {
@@ -320,6 +322,17 @@
                 </el-tab-pane>
                 <el-tab-pane label="日历" name="fifth">
                     <el-calendar v-model="date"></el-calendar>
+                </el-tab-pane>
+                <el-tab-pane label="自定义图表" name="sixth">
+                    {% get_monitor_display as monitor_display %}
+                    {% if monitor_display %}
+                        <el-card style="margin-top: 10px;">
+                            <div slot="header">
+                                {% trans 'System Monitor' %}
+                            </div>
+                            <monitor ref="monitor" url="{% url 'sp:monitor' %}"></monitor>
+                        </el-card>
+                    {% endif %}
                 </el-tab-pane>
             </el-tabs>
         </template>
