@@ -190,7 +190,11 @@ SIMPLEUI_CONFIG = {
                     "icon": "fas fa-project-diagram",
                     "url": "/admin/system/httpconfig/",
                 },
-                {"name": "程序升级", "icon": "fas fa-level-up-alt", "url": "/custom/upload/"},
+                {
+                    "name": "程序升级",
+                    "icon": "fas fa-level-up-alt",
+                    "url": "/custom/upload/",
+                },
             ],
         },
         {
@@ -266,13 +270,11 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.BasicAuthentication"
     ],
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated"
-    ],
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
         "rest_framework.filters.SearchFilter",
-        "rest_framework.filters.OrderingFilter"
+        "rest_framework.filters.OrderingFilter",
     ],
     "EXCEPTION_HANDLER": "utils.exception_handler.custom_exception_handler",
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.AutoSchema",
@@ -281,6 +283,5 @@ REST_FRAMEWORK = {
 if DEBUG is False:
     REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = [
         "rest_framework.renderers.JSONRenderer",
-        "rest_framework.renderers.BrowsableAPIRenderer"
+        "rest_framework.renderers.BrowsableAPIRenderer",
     ]
-

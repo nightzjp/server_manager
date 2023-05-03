@@ -36,10 +36,7 @@ class RabbitQueue:
     @staticmethod
     def generate_body(topic, data):
         """生成通用消息体"""
-        return json.dumps({
-            "topic": topic,
-            "data": data
-        })
+        return json.dumps({"topic": topic, "data": data})
 
     def connect(self):
         credit = pika.PlainCredentials(username=self.username, password=self.password)

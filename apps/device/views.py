@@ -11,7 +11,7 @@ class AlgorithmViewSet(
     mixins.CreateModelMixin,
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
-    GenericViewSet
+    GenericViewSet,
 ):
     queryset = models.Algorithm.objects.order_by("-create_at")
     serializer_class = serializers.AlgorithmSerializers
@@ -23,7 +23,7 @@ class DeviceViewSet(
     mixins.CreateModelMixin,
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
-    GenericViewSet
+    GenericViewSet,
 ):
     queryset = models.Device.objects.order_by("-create_at")
     serializer_class = serializers.DeviceSerializers

@@ -25,4 +25,3 @@ class SystemInfoFilter(filters.FilterSet):
     class Meta:
         model = models.SystemInfo
         fields = []
-

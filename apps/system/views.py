@@ -11,7 +11,7 @@ class MqttConfigViewSet(
     mixins.CreateModelMixin,
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
-    GenericViewSet
+    GenericViewSet,
 ):
     queryset = models.MqttConfig.objects.order_by("-create_at")
     serializer_class = serializers.MqttConfigSerializers
@@ -23,27 +23,20 @@ class HttpConfigViewSet(
     mixins.CreateModelMixin,
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
-    GenericViewSet
+    GenericViewSet,
 ):
     queryset = models.HttpConfig.objects.order_by("-create_at")
     serializer_class = serializers.HttpConfigSerializers
     filterset_class = filters.HttpConfigFilter
 
 
-class NetWorkConfigViewSet(
-    mixins.ListModelMixin,
-    GenericViewSet
-):
+class NetWorkConfigViewSet(mixins.ListModelMixin, GenericViewSet):
     queryset = models.NetworkConfig.objects.order_by("-create_at")
     serializer_class = serializers.NetWorkConfigSerializers
     filterset_class = filters.NetWorkConfigFilter
 
 
-class SystemInfoViewSet(
-    mixins.ListModelMixin,
-    mixins.UpdateModelMixin,
-    GenericViewSet
-):
+class SystemInfoViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, GenericViewSet):
     queryset = models.SystemInfo.objects.order_by("-create_at")
     serializer_class = serializers.SystemInfoSerializers
     filterset_class = filters.SystemInfoFilter

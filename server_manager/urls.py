@@ -38,7 +38,7 @@ urlpatterns = [
     # path('', admin.site.urls),
     path("sp/", include("simplepro.urls")),
     path("v1/", include(urls_v1)),
-    path("custom/", include(custom_urls_v1))
+    path("custom/", include(custom_urls_v1)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = "视图管理平台"

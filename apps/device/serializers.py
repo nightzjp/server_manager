@@ -16,11 +16,11 @@ class AlgorithmSerializers(serializers.ModelSerializer):
             "ai_describe",
             "ai_file",
             "ai_source_id",
-            "create_at"
+            "create_at",
         ]
         extra_kwargs = {
             "ai_source_id": {"read_only": True},
-            "create_at": {"format": "%Y-%m-%d %H:%M:%S", "read_only": True}
+            "create_at": {"format": "%Y-%m-%d %H:%M:%S", "read_only": True},
         }
 
 
@@ -47,11 +47,11 @@ class DeviceSerializers(serializers.ModelSerializer):
             "d_last_logout",
             "d_algorithm",
             "d_source_id",
-            "create_at"
+            "create_at",
         ]
         extra_kwargs = {
             "d_source_id": {"read_only": True},
             "d_last_login": {"format": "%Y-%m-%d %H:%M:%S", "read_only": True},
             "d_last_logout": {"format": "%Y-%m-%d %H:%M:%S", "read_only": True},
-            "create_at": {"format": "%Y-%m-%d %H:%M:%S", "read_only": True}
+            "create_at": {"format": "%Y-%m-%d %H:%M:%S", "read_only": True},
         }
