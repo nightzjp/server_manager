@@ -285,3 +285,6 @@ if DEBUG is False:
         "rest_framework.renderers.JSONRenderer",
         "rest_framework.renderers.BrowsableAPIRenderer",
     ]
+
+
+APPEND_SLASH = False  # 校验路由最后一个斜杠
