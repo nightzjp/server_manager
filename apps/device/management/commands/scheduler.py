@@ -19,13 +19,12 @@ class Command(BaseCommand):
                 seconds=1800,  # 每隔1800s更新设备拉流状态
                 jobstore='default',
                 executor='default',
-                replace_existing=True
+                replace_existing=True,
             )
             _scheduler.start()
         except Exception as e:
             print(e)
             _scheduler.shutdown()
-
 
     @staticmethod
     def update_device_status():

@@ -1,17 +1,17 @@
-from rest_framework.viewsets import GenericViewSet
 from rest_framework.viewsets import mixins
 
 from device import models
 from device import serializers
 from device import filters
+from public.views import CustomGenericViewSet
 
 
 class AlgorithmViewSet(
+    CustomGenericViewSet,
     mixins.ListModelMixin,
     mixins.CreateModelMixin,
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
-    GenericViewSet,
 ):
     queryset = models.Algorithm.objects.order_by("-create_at")
     serializer_class = serializers.AlgorithmSerializers
@@ -19,11 +19,11 @@ class AlgorithmViewSet(
 
 
 class DeviceViewSet(
+    CustomGenericViewSet,
     mixins.ListModelMixin,
     mixins.CreateModelMixin,
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
-    GenericViewSet,
 ):
     queryset = models.Device.objects.order_by("-create_at")
     serializer_class = serializers.DeviceSerializers

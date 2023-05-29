@@ -28,8 +28,9 @@ class BaseModel(models.Model):
     自定义Model基类
     """
 
-    id = models.UUIDField(
-        primary_key=True, default=uuid.uuid4, editable=False, verbose_name="UUID"
+    id = models.BigAutoField(primary_key=True)
+    uid = models.UUIDField(
+        default=uuid.uuid4, editable=False, db_index=True, verbose_name="UUID"
     )
     create_at = fields.DateTimeField(
         auto_now_add=True, db_index=True, verbose_name="创建时间"

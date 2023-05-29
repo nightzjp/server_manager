@@ -9,6 +9,7 @@ class AlgorithmSerializers(serializers.ModelSerializer):
     class Meta:
         model = models.Algorithm
         fields = [
+            "uid",
             "ai_name",
             "ai_status",
             "ai_is_used",
@@ -30,6 +31,7 @@ class DeviceSerializers(serializers.ModelSerializer):
     class Meta:
         model = models.Device
         fields = [
+            "uid",
             "d_name",
             "d_ip",
             "d_address",

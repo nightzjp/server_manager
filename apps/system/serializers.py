@@ -7,6 +7,7 @@ class MqttConfigSerializers(serializers.ModelSerializer):
     class Meta:
         model = models.MqttConfig
         fields = [
+            "uid",
             "m_status",
             "m_client_id",
             "m_ip",
@@ -19,19 +20,36 @@ class MqttConfigSerializers(serializers.ModelSerializer):
 class HttpConfigSerializers(serializers.ModelSerializer):
     class Meta:
         model = models.HttpConfig
-        fields = ["h_status", "h_ip", "h_port", "h_username", "h_password", "h_period"]
+        fields = [
+            "uid",
+            "h_status",
+            "h_ip",
+            "h_port",
+            "h_username",
+            "h_password",
+            "h_period",
+        ]
 
 
 class NetWorkConfigSerializers(serializers.ModelSerializer):
     class Meta:
         model = models.NetworkConfig
-        fields = ["n_name", "n_ip", "n_mask", "n_broadcast", "n_gateway", "n_dns"]
+        fields = [
+            "uid",
+            "n_name",
+            "n_ip",
+            "n_mask",
+            "n_broadcast",
+            "n_gateway",
+            "n_dns",
+        ]
 
 
 class SystemInfoSerializers(serializers.ModelSerializer):
     class Meta:
         model = models.SystemInfo
         fields = [
+            "uid",
             "d_type",
             "d_id",
             "d_mac",
