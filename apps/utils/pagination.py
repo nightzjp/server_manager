@@ -9,7 +9,7 @@ class CustomLimitOffsetPagination(LimitOffsetPagination):
 
     def get_count(self, queryset):
         try:
-            return queryset.first().id
+            return queryset.first().id - queryset.last().id + 1
         except (AttributeError, TypeError):
             return len(queryset)
 
